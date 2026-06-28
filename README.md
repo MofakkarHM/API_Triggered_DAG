@@ -15,12 +15,14 @@ Client -> POST /trigger-dag -> Node.js Backend -> Airflow REST API -> DAG trigge
 
 ## Project Structure
 
+```text
 API_Triggered_DAG/
 ├── airflow/
 │   └── dags/
-│       └── api_triggered_dag.py   <- Airflow DAG (schedule=None)
+│       └── api_triggered_dag.py   # Airflow DAG (schedule=None)
 └── backend/
-    └── index.js                   <- Express server
+    └── index.js                   # Express server
+```
 
 ## DAG Tasks
 
