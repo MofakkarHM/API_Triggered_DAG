@@ -17,18 +17,18 @@ Client -> POST /trigger-dag -> Node.js Backend -> Airflow REST API -> DAG trigge
 
 API_Triggered_DAG/
 ├── airflow/
-│ └── dags/
-│ └── api_triggered_dag.py <- Airflow DAG (schedule=None)
+│   └── dags/
+│       └── api_triggered_dag.py   <- Airflow DAG (schedule=None)
 └── backend/
-└── index.js <- Express server
+    └── index.js                   <- Express server
 
 ## DAG Tasks
 
-| Task          | Description                                  |
-| ------------- | -------------------------------------------- |
-| receive_input | Reads conf data sent from the API call       |
-| process       | Processes the received data                  |
-| respond       | Simulates sending a response or notification |
+| Task | Description |
+|---|---|
+| receive_input | Reads conf data sent from the API call |
+| process | Processes the received data |
+| respond | Simulates sending a response or notification |
 
 ## Concepts Demonstrated
 
@@ -49,14 +49,12 @@ API_Triggered_DAG/
 ## Setup
 
 ### Airflow
-
 1. Install Astro CLI
 2. cd airflow
 3. Run: astro dev start
 4. Go to http://localhost:8080
 
 ### Node.js Backend
-
 1. cd backend
 2. Run: npm install
 3. Run: node index.js
@@ -70,14 +68,14 @@ POST http://localhost:3000/trigger-dag
 Content-Type: application/json
 
 {
-"user_id": 123,
-"action": "generate_report"
+    "user_id": 123,
+    "action": "generate_report"
 }
 
 Response:
 
 {
-"success": true,
-"message": "DAG triggered successfully!",
-"dag_run_id": "manual\_\_2026-06-28T09:05:17.066931+00:00"
+    "success": true,
+    "message": "DAG triggered successfully!",
+    "dag_run_id": "manual__2026-06-28T09:05:17.066931+00:00"
 }
